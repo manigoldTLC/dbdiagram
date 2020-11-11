@@ -1,0 +1,24 @@
+// Questão 1 (Modelagem de DB)
+
+Table Teachers as T{
+  teacher_id int [pk]
+  teacher_cpf varchar [not null]
+  sex_id int [not null, ref: > Sex.sex_id]
+  teacher_age int [not null]
+  teacher_name varchar [not null]
+  teacher_matter varchar [not null]
+}
+
+Table Student as S{
+  student_age int [not null]
+  sex_id int [not null, ref: > Sex.sex_id]
+  student_name varchar [not null]
+  student_cpf varchar [not null]
+  student_registration int [not null]
+  teacher_id int [ref: > T.teacher_id]
+}
+
+Table Sex{
+  sex_id int [pk, increment]
+  sex_name varchar [not null]
+}
